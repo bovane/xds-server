@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>org.openhealth.ipf.tutorials.xds</groupId>
+    <artifactId>xds-server</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.3.2.RELEASE</version>
+        <relativePath/>
+    </parent>
+
+    <properties>
+        <maven.compiler.source>11</maven.compiler.source>
+        <maven.compiler.target>11</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <ipf.version>4.8-m5</ipf.version>
+        <tomcat.version>9.0.83</tomcat.version>
+        <jetty.version>9.4.53.v20231009</jetty.version>
+        <hutool.version>5.8.12</hutool.version>
+        <camel-groovy-version>3.21.3</camel-groovy-version>
+        <common.io.version>2.15.0</common.io.version>
+        <junit.jupiter.version>5.8.2</junit.jupiter.version>
+    </properties>
+    <dependencies>
+
+        <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-actuator -->
+        <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-actuator</artifactId>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/cn.hutool/hutool-all -->
+        <dependency>
+            <groupId>cn.hutool</groupId>
+            <artifactId>hutool-all</artifactId>
+            <version>${hutool.version}</version>
+        </dependency>
+
+        <!-- Camel BOM -->
+        <dependency>
+            <groupId>org.openehealth.ipf</groupId>
+            <artifactId>ipf-dependencies</artifactId>
+            <version>${ipf.version}</version>
+            <type>pom</type>
+            <scope>import</scope>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.openehealth.ipf.boot/ipf-atna-spring-boot-starter -->
+        <dependency>
+            <groupId>org.openehealth.ipf.boot</groupId>
+            <artifactId>ipf-atna-spring-boot-starter</artifactId>
+            <version>${ipf.version}</version>
+        </dependency>
+
+
+        <dependency>
+            <groupId>org.openehealth.ipf.boot</groupId>
+            <artifactId>ipf-xds-spring-boot-starter</artifactId>
+            <version>${ipf.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.openehealth.ipf.platform-camel</groupId>
+            <artifactId>ipf-platform-camel-ihe-mllp</artifactId>
+            <version>${ipf.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.openehealth.ipf.platform-camel</groupId>
+            <artifactId>ipf-platform-camel-ihe-xds</artifactId>
+            <version>${ipf.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.openehealth.ipf.platform-camel</groupId>
+            <artifactId>ipf-platform-camel-ihe-xds</artifactId>
+            <version>${ipf.version}</version>
+            <type>test-jar</type>
+            <scope>compile</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.openehealth.ipf.platform-camel</groupId>
+            <artifactId>ipf-platform-camel-ihe-ws</artifactId>
+            <version>${ipf.version}</version>
+            <type>test-jar</type>
+            <scope>compile</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.openehealth.ipf.commons</groupId>
+            <artifactId>ipf-commons-ihe-ws</artifactId>
+            <version>${ipf.version}</version>
+            <type>test-jar</type>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.codehaus.groovy/groovy -->
+        <dependency>
+            <groupId>org.codehaus.groovy</groupId>
+            <artifactId>groovy</artifactId>
+            <version>3.0.8</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.camel</groupId>
+            <artifactId>camel-groovy</artifactId>
+            <version>${camel-groovy-version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.camel</groupId>
+            <artifactId>camel-spring</artifactId>
+            <version>${camel-groovy-version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.camel</groupId>
+            <artifactId>camel-spring-xml</artifactId>
+            <version>${camel-groovy-version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.openehealth.ipf.platform-camel</groupId>
+            <artifactId>ipf-platform-camel-ihe-hl7v3</artifactId>
+            <version>${ipf.version}</version>
+        </dependency>
+        <!-- Dependencies for test -->
+        <dependency>
+            <groupId>org.openehealth.ipf.commons</groupId>
+            <artifactId>ipf-commons-ihe-xds</artifactId>
+            <version>${ipf.version}</version>
+            <type>test-jar</type>
+            <scope>compile</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.openehealth.ipf.commons</groupId>
+            <artifactId>ipf-commons-ihe-core</artifactId>
+            <version>${ipf.version}</version>
+            <type>test-jar</type>
+        </dependency>
+        <dependency>
+            <groupId>javax.annotation</groupId>
+            <artifactId>javax.annotation-api</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-aop</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+            <version>${common.io.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter</artifactId>
+            <version>${junit.jupiter.version}</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.springframework/spring-test -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-test</artifactId>
+            <version>5.3.31</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.eclipse.jetty</groupId>
+            <artifactId>jetty-io</artifactId>
+            <version>${jetty.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.eclipse.jetty</groupId>
+            <artifactId>jetty-servlet</artifactId>
+            <version>${jetty.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.tomcat</groupId>
+            <artifactId>tomcat-catalina</artifactId>
+            <version>${tomcat.version}</version>
+            <scope>compile</scope>
+        </dependency>
+
+
+        <!-- 解决maven依赖报错       -->
+
+
+        <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-resources-plugin -->
+        <dependency>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-resources-plugin</artifactId>
+            <version>3.3.1</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-jar-plugin -->
+        <dependency>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-jar-plugin</artifactId>
+            <version>3.3.0</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-compiler-plugin -->
+        <dependency>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-compiler-plugin</artifactId>
+            <version>3.11.0</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-compiler-plugin -->
+        <dependency>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-surefire-plugin</artifactId>
+            <version>3.1.2</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-compiler-plugin -->
+        <dependency>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-install-plugin</artifactId>
+            <version>3.1.1</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-compiler-plugin -->
+        <dependency>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-deploy-plugin</artifactId>
+            <version>3.1.1</version>
+        </dependency>
+
+
+    </dependencies>
+
+</project>

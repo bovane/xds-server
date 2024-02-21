@@ -1,0 +1,40 @@
+spring:
+  application:
+    name: hos-service
+  profiles:
+    active: dev
+  servlet:
+    multipart:
+      max-request-size: 100MB
+      max-file-size: 100MB
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: 'prometheus'
+  metrics:
+    tags:
+      application: ${spring.application.name}
+server:
+  port: 9091
+  servlet:
+    context-path: /
+sys:
+  backendPath:
+  restfulPath: /rest
+  auth:
+    enable: true
+#是否启用自动创建实体
+extendEntity:
+  enable: false
+
+# 日志配置  为空为项目跟目录下的logs  或者指定已经存在的目录
+log:
+  path: /Users/bovane/Documents/hos-app/logs
+
+
+
+ipf:
+  atna:
+    audit-enabled: false
