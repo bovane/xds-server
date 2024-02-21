@@ -19,7 +19,6 @@ import org.apache.camel.model.OutputDefinition
 
 import static org.openehealth.ipf.commons.ihe.xds.core.metadata.AssociationType.HAS_MEMBER
 import static org.openehealth.ipf.tutorials.xds.Comparators.*
-
 /**
  * Model class to add the Search processor to route implementations.
  *

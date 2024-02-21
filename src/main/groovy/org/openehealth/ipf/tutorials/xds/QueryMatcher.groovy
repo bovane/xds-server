@@ -15,12 +15,14 @@
  */
 package org.openehealth.ipf.tutorials.xds
 
+import org.openehealth.ipf.commons.ihe.xds.core.metadata.DocumentEntry
+import org.openehealth.ipf.commons.ihe.xds.core.metadata.Folder
+import org.openehealth.ipf.commons.ihe.xds.core.metadata.SubmissionSet
+import org.openehealth.ipf.commons.ihe.xds.core.requests.query.FindDocumentsQuery
+import org.openehealth.ipf.commons.ihe.xds.core.requests.query.FindFoldersQuery
+import org.openehealth.ipf.commons.ihe.xds.core.requests.query.FindSubmissionSetsQuery
+
 import static org.openehealth.ipf.tutorials.xds.Comparators.*
-
-import org.openehealth.ipf.commons.ihe.xds.core.metadata.*
-import org.openehealth.ipf.commons.ihe.xds.core.requests.query.*
-
-
 /**
  * Matcher used by the {@link SearchDefinition} to match queries. Note that this
  * uses dynamic method dispatching in Groovy to find the method that fits

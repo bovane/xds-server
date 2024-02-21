@@ -5,6 +5,7 @@ import org.apache.camel.reifier.ProcessorReifier;
 /**
  * @author Christian Ohr
  */
+
 public class RegRepModelExtensionInitializer {
 
     public RegRepModelExtensionInitializer() {
